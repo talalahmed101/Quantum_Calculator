@@ -1,6 +1,6 @@
 # Quantum Calculator
 
-This repository contains a quantum algorithm for modular addition and multiplication of two integers $x$ and $y$. The binary representation of $x$ is $x_{0}x_{1}...x_{d-1}$, which consists of $d$ bits. Similarly, $y$ has a binary representation consisting of $d$ bits. Therefore, $x$ is expressed in the computational basis as follows:
+This repository contains a quantum algorithm for addition and multiplication of two integers $x$ and $y$ (modulo N), where $N=2^{d}$. The binary representation of $x$ is $x_{0}x_{1}...x_{d-1}$, which consists of $d$ bits. Similarly, $y$ has a binary representation consisting of $d$ bits. Therefore, $x$ is expressed in the computational basis as follows:
 
 $$
 |x\rangle_{d} := |x_{0}\rangle\,|x_{1}\rangle...|x_{d-1}\rangle
