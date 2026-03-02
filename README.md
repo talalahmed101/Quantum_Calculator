@@ -100,9 +100,9 @@ $$
 \end{cases}
 $$
 
-Therefore the output, whether it should be quantum addition or multiplication, is controlled by $z$ qubit. We integrated this control qubit by introducing two ancilla qubits, $a_{1}$ and $a_{2}$ in the circuit construction. In the case of quantum addition, the phase gate $R_{d-(j+k)}$ on the $P[k]$ qubit, controlled by either $X[j]$ or $Y[j]$ qubit is modified to include a Toffoli gate with control qubits $z$ and $X[j]$ and target qubit $a_{2}$ ancilla. Then the $a_{2}$ ancilla acts as the control qubit for the controlled-phase gate $R_{d-(j+k)}$ acting on the $P[k]$ qubit. Similar construction also holds for $Y[j]$ qubits.
+Therefore the output, whether it should be quantum addition or multiplication, is controlled by $z$ qubit. We integrated this control qubit by introducing two ancilla qubits, $a_{1}$ and $a_{2}$ in the circuit construction. In the case of quantum addition, the phase gate $R_{d-(j+k)}$ on the $P[k]$ qubit, controlled by either $X[j]$ or $Y[j]$ qubit is modified to include a Toffoli gate with control qubits $z$ and $X[j]$ and target qubit $a_{2}$ ancilla, denoting as $\text{Toffoli}(z, X[j], a_{2})$ Then the $a_{2}$ ancilla acts as the control qubit for the controlled-phase gate $R_{d-(j+k)}$ acting on the $P[k]$ qubit. Similar construction also holds for $Y[j]$ qubits. Besides, after applying the controlled-phase gates, we uncompute the ancilla $a_{2}$ by applying the $\text{Toffoli}(z, X[j], a_{2})$ or $\text{Toffoli}(z, Y[j], a_{2})$ again.
 
-On the other hand,
+On the other hand, for quantum multiplication, the multi-controlled phase gate acting on $P[k]$, controlled by $Y[i]$ and $X[j]$ qubits is modified into first applying $\text{Toffoli}(z, Y[i], a_{1})$ and then applying $\text{Toffoli}(a_{1}, X[j], a_{2})$, and finally controlled-phase gates $R_{d-(i+j+k)}$ acting on $P[k]$ qubits controlled with $a_{2}$ ancilla qubit. Therefore, in our circuit construction, we only require two additional ancilla qubits to implement Toffoli gates.
 
 
 
