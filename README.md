@@ -10,8 +10,9 @@ where the subscript $d$ indicates that $x$ is expressed using $d$ qubits.
 We present a qiskit function that takes one input: a positive integer and outputs a quantum circuit, Quantum_calculator, on $3d+1$ qubits and two additional ancilla qubits that inplements the following:
 
 $$
-\text{Quantum_calculator}\,|z\rangle_{1}|y\rangle_{d}|x\rangle_{d}|0\rangle_{d}= \begin{cases} 
-      |z\rangle_{1}|y\rangle_{d}|x\rangle_{d}|x+y\mod 2^{d}\rangle_{d} & \text{if}\,\,z = 0 \\
-      |z\rangle_{1}|y\rangle_{d}|x\rangle_{d}|x.y\mod 2^{d}\rangle_{d} & \text{if}\,\,z = 1
-   \end{cases}
+\text{Quantum\_calculator} |z\rangle_{1}|y\rangle_{d}|x\rangle_{d}|0\rangle_{d} = 
+\begin{cases} 
+|z\rangle_{1}|y\rangle_{d}|x\rangle_{d}|x+y \pmod{2^{d}}\rangle_{d} & \text{if } z = 0 \\ 
+|z\rangle_{1}|y\rangle_{d}|x\rangle_{d}|x \cdot y \pmod{2^{d}}\rangle_{d} & \text{if } z = 1 
+\end{cases}
 $$
