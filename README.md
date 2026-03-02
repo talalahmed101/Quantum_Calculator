@@ -28,6 +28,7 @@ $$
 
 where $x_{j} \in \{0, 1\}$. Thus, $x_{j}$ is associated with the $X[j]$ qubit, and similarly, $y_{i}$ is associated with the $Y[i]$ qubit in their respective registers. Now, let us outline the quantum addition of two integers, $x$ and $y$, modulo $2^{d}$.
 
+### Quantum Addition:
 **Step 1**: We transform $|0\rangle_{P}$ to its Fourier basis:
 
 $$
@@ -57,10 +58,33 @@ $$
 |y\rangle_{Y}|x\rangle_{X}|0\rangle_{P}\mapsto |y\rangle_{Y} |x\rangle_{X} |\phi(x+y\mod 2^{d})\rangle_{P}
 $$
 
-This result is obtained by applying the phase gate $R_{d-(j+k)}$ on the $P[k]$ qubit, controlled by the $Y[j]$ qubit, where $j+k < d$.
+This result is obtained by applying the phase gate $R_{d-(j+k)}$ on the $P[k]$ qubit, controlled by the $Y[j]$ qubit, where $j+k < d$. As such, for $j=0,1,..,d-1$, the index $k$ will have the range, $k=0,1,..,d-j-1$.
 
 **Step 4**: Finally, by applying the inverse Quantum Fourier Transform (IQFT) on the $P$ qubit register, we obtain:
 
 $$
 |\phi(x+y \mod 2^{d})\rangle_{P}\mapsto |x+y \mod 2^{d}\rangle
 $$
+
+### Quantum Multiplication:
+
+**Step 1**: Here the goal is to obtain
+
+$$
+|y\rangle_{Y}|x\rangle_{X}|0\rangle_{P}\mapsto |y\rangle_{Y}|x\rangle_{X}|x.y \mod 2^{d}\rangle
+$$
+
+So we again initiate $|0\rangle_{P}$ in the Fourier basis $|0\rangle_{P}\mapsto |\phi(0)\rangle_{P}$.
+
+**Step 2**: We apply the phase gate $R_{d-(i+j+k)}$ on the $P[k]$ qubit, controlled by $Y[i]$ and $X[j]$ qubits where $i+j+k<d$. As such, for the index of $Y[i]$ qubit register, $i=0,1,..,d-1$, the indices of $X[j]$ qubit and $P[k]$ qubit registers will have the range, $j=0,1,..,d-j-1$ and $k=0,1,..,d-i-j-1$, respectively. The result is
+
+$$
+|y\rangle_{Y}|x\rangle_{X}|0\rangle_{P}\mapsto |y\rangle_{Y}|x\rangle_{X}|\phi(x.y \mod 2^{d})\rangle
+$$
+
+**Step 3**: Finally by applying IQFT on $P[k]$ qubits, we get the desired result,
+
+$$
+|y\rangle_{Y}|x\rangle_{X}|0\rangle_{P}\mapsto |y\rangle_{Y}|x\rangle_{X}|x.y \mod 2^{d}\rangle
+$$
+
