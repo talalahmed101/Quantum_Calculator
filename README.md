@@ -20,7 +20,7 @@ $$
 
 # Methodology
 
-We use the least significant bit (LSB) convention for the binary representations of the integers. We assign qubit registers $X[j]$, $Y[i]$, and $P[k]$ for $x$, $y$, and the results of $x+y$ (or $x\cdot y$), respectively. In this system, $X[0]$, $Y[0]$, and $P[0]$ represent the LSBs of $x$, $y$, and $x+y$ (or $x \cdot y$, respectively). Furthermore, $x$ is expressed as follows:
+The quantum circuit construction presented here is based on Draper's Adder quantum circuit detailed in Ref. [1]. We use the least significant bit (LSB) convention for the binary representations of the integers. We assign qubit registers $X[j]$, $Y[i]$, and $P[k]$ for $x$, $y$, and the results of $x+y$ (or $x\cdot y$), respectively. In this system, $X[0]$, $Y[0]$, and $P[0]$ represent the LSBs of $x$, $y$, and $x+y$ (or $x \cdot y$, respectively). Furthermore, $x$ is expressed as follows:
 
 $$
 x = \sum_{j=0}^{d-1}x_{j}2^{j}
@@ -119,6 +119,10 @@ $$
 $$
 
 The Toffoli count scales as $\text{Toffoli gate count}\sim O\left(d^{1.47}\right)$, and the CX count scales as $\text{Total CX count}\sim O\left(d^{2.4}\right)$. Moreover, in the case of single qubit gates, the RZ gate count scales as $\text{RZ gate count}\sim O\left(d^{2.18}\right)$ and the RX gate count scales as $\text{RX gate count}\sim O\left(d^{1.54}\right)$. In addition, in our circuit construction, the number of ancilla qubits remains 2 irrespective of $d$.
+
+# References
+1. Draper, T. G. (2000). Addition on a quantum computer. arXiv preprint quant-ph/0008033.
+
 
 
 
