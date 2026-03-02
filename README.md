@@ -25,5 +25,5 @@ $$
 x = \sum_{j=0}^{d-1}x_{j}2^{j}
 $$
 
-where $x_{j}\in \left\{0,1\right\}$.
+where $x_{j}\in \{0,1\}$.
 
