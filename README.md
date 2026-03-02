@@ -88,3 +88,22 @@ $$
 |y\rangle_{Y}|x\rangle_{X}|0\rangle_{P}\mapsto |y\rangle_{Y}|x\rangle_{X}|x.y \mod 2^{d}\rangle
 $$
 
+# Quantum Circuit Construction and Qiskit Implementation
+
+The qiskit function **QCalc**, that takes one input, a positive integer, and outputs a quantum circuit that operates on $3d+1$ qubits and two additional ancilla qubits. This function implements the following transformation:
+
+$$
+\text{QCalc} |z\rangle_{1}|y\rangle_{d}|x\rangle_{d}|0\rangle_{d} = 
+\begin{cases} 
+|z\rangle_{1}|y\rangle_{d}|x\rangle_{d}|x+y \pmod{2^{d}}\rangle_{d}, & \text{if } z = 0 \\ 
+|z\rangle_{1}|y\rangle_{d}|x\rangle_{d}|x \cdot y \pmod{2^{d}}\rangle_{d}, & \text{if } z = 1 
+\end{cases}
+$$
+
+Therefore the output, whether it should be quantum addition or multiplication, is controlled by $z$ qubit. We integrated this control qubit by introducing two ancilla qubits, $a_{1}$ and $a_{2}$ in the circuit construction. In the case of quantum addition, the phase gate $R_{d-(j+k)}$ on the $P[k]$ qubit, controlled by either $X[j]$ or $Y[j]$ qubit is modified to include a Toffoli gate with control qubits $z$ and $X[j]$ and target qubit $a_{2}$ ancilla. Then the $a_{2}$ ancilla acts as the control qubit for the controlled-phase gate $R_{d-(j+k)}$ acting on the $P[k]$ qubit. Similar construction also holds for $Y[j]$ qubits.
+
+On the other hand,
+
+
+
+
