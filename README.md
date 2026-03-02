@@ -104,6 +104,22 @@ Therefore the output, whether it should be quantum addition or multiplication, i
 
 On the other hand, for quantum multiplication, the multi-controlled phase gate acting on $P[k]$, controlled by $Y[i]$ and $X[j]$ qubits is modified into first applying $\text{Toffoli}(z, Y[i], a_{1})$ and then applying $\text{Toffoli}(a_{1}, X[j], a_{2})$, and finally controlled-phase gates $R_{d-(i+j+k)}$ acting on $P[k]$ qubits controlled with $a_{2}$ ancilla qubit. Therefore, in our circuit construction, we only require two additional ancilla qubits to implement Toffoli gates.
 
+# Circuit Complexity and Resource Estimation
+
+The quantum circuit associated with the **QCalc** involves multiple Toffoli gates and controlled phase gates along with NOT gate, Hadarmard gate and SWAP gates coming from Inverse QFT. With respect to the basis gate set (CX, Toffoli, RZ, RX, X), the circuit depth scales with respect to $d$ as,
+
+$$
+\text{circuit depth}\sim O\left(d^{2.12}\right)
+$$
+
+On the other hand, the total gate count of the circuit scales as
+
+$$
+\text{Total gate count}\sim O\left(d^{2.1}\right)
+$$
+
+The Toffoli count scales as $\text{Toffoli gate count}\sim O\left(d^{1.47}\right)$, and the CX count scales as $\text{Total CX count}\sim O\left(d^{2.4}\right)$. Moreover, in the case of single qubit gates, the RZ gate count scales as $\text{RZ gate count}\sim O\left(d^{2.18}\right)$ and the RX gate count scales as $\text{RX gate count}\sim O\left(d^{1.54}\right)$. In addition, in our circuit construction, the number of ancilla qubits remains 2 irrespective of $d$.
+
 
 
 
