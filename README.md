@@ -1,12 +1,12 @@
 # Quantum Calculator
 
-This repository contains a quantum algorithm for modular addition and multiplication of two integers $x$ and $y$. The binary representation of $ x $ is $ x_{0}x_{1}...x_{d-1} $, which consists of $ d $ bits. Similarly, $ y $ has a binary representation consisting of $ d $ bits. Therefore, $ x $ is expressed in the computational basis as follows:
+This repository contains a quantum algorithm for modular addition and multiplication of two integers $x$ and $y$. The binary representation of $x$ is $x_{0}x_{1}...x_{d-1}$, which consists of $d$ bits. Similarly, $ y $ has a binary representation consisting of $d$ bits. Therefore, $x$ is expressed in the computational basis as follows:
 
 $$
 |x\rangle_{d} := |x_{0}\rangle\,|x_{1}\rangle...|x_{d-1}\rangle
 $$
 
-where the subscript $ d $ indicates that $ x $ is represented using $ d $ qubits.
+where the subscript $d$ indicates that $x$ is represented using $d$ qubits.
 
 We present a Qiskit function, QCalc, that takes one input, a positive integer, and outputs a quantum circuit that operates on $3d+1$ qubits and two additional ancilla qubits. This function implements the following transformation:
 
@@ -20,7 +20,7 @@ $$
 
 # Methodology
 
-We use the least significant bit (LSB) convention for the binary representations of the integers. We assign qubit registers \( X \), \( Y \), and \( P \) for \( x \), \( y \), and the results of \( x+y \) (or \( x \cdot y \)), respectively. In this system, \( X[0] \), \( Y[0] \), and \( P[0] \) represent the LSBs of \( x \), \( y \), and \( x+y \) (or \( x \cdot y \), respectively). Furthermore, \( x \) is expressed as follows:
+We use the least significant bit (LSB) convention for the binary representations of the integers. We assign qubit registers $X[j]$, $Y[i]$, and  $P[k]$ for $x$, $y$, and the results of $x+y$ (or $x\cdot y$), respectively. In this system, $X[0]$, $Y[0]$, and $P[0]$ represent the LSBs of $x$, \( y \), and \( x+y \) (or \( x \cdot y \), respectively). Furthermore, \( x \) is expressed as follows:
 
 $$
 x = \sum_{j=0}^{d-1}x_{j}2^{j}
