@@ -1,5 +1,8 @@
 # Quantum Calculator
 
+**Please use the following link to view the file. The default preview of Github is showing error:**
+https://nbviewer.jupyter.org/github/talalahmed101/Quantum_Calculator/blob/main/Quantum_calculator_ver_2.ipynb
+
 This repository contains a quantum algorithm for addition and multiplication of two integers $x$ and $y$ (modulo N), where $N=2^{d}$. The binary representation of $x$ is $x_{0}x_{1}...x_{d-1}$, which consists of $d$ bits. Similarly, $y$ has a binary representation consisting of $d$ bits. Therefore, $x$ is expressed in the computational basis as follows:
 
 $$
